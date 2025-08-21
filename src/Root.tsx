@@ -1,9 +1,9 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import { App } from './App';
 import { PageNotFound } from './Components/PageNotFound';
 import { TabsProvider } from './Components/TabsContext';
-import { PageContent } from './Components/PageContent';
 import { HomePage } from './Components/HomePage';
+import { TabsPage } from './Components/TabsPage';
 
 export const Root = () => (
   <BrowserRouter>
@@ -12,10 +12,13 @@ export const Root = () => (
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
 
-          <Route path="/tabs" element={<PageContent />}>
-            <Route path=":tabId" />
-            <Route path="*" element={<PageNotFound />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </TabsProvider>

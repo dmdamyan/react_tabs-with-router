@@ -8,7 +8,7 @@ export const NavbarItemTabs = () => {
     <Link
       to="/tabs"
       className={classNames('navbar-item', {
-        'is-active': pathname === '/tabs',
+        'is-active': pathname.startsWith('/tabs'),
       })}
     >
       Tabs
