@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
+import { Route, HashRouter, Routes, Navigate } from 'react-router-dom';
 import { App } from './App';
 import { PageNotFound } from './Components/PageNotFound';
 import { TabsProvider } from './Components/TabsContext';
@@ -6,7 +6,7 @@ import { HomePage } from './Components/HomePage';
 import { TabsPage } from './Components/TabsPage';
 
 export const Root = () => (
-  <BrowserRouter>
+  <HashRouter>
     <TabsProvider>
       <Routes>
         <Route path="/" element={<App />}>
@@ -22,5 +22,5 @@ export const Root = () => (
         </Route>
       </Routes>
     </TabsProvider>
-  </BrowserRouter>
+  </HashRouter>
 );

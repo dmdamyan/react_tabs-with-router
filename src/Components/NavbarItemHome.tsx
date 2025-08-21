@@ -6,7 +6,7 @@ export const NavbarItemHome = () => {
 
   return (
     <Link
-      to="/home"
+      to="/"
       className={classNames('navbar-item', {
         'is-active': pathname === '/',
       })}

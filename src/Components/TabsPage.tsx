@@ -7,7 +7,8 @@ export const TabsPage = () => {
   const tabs = useContext(TabsContext);
   const { pathname } = useLocation();
   const { tabId } = useParams();
-  const tab = tabs.find(t => t.id === tabId);
+
+  const tab = tabId ? tabs.find(t => t.id === tabId) : undefined;
 
   return (
     <div className="section">
